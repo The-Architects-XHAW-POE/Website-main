@@ -8,6 +8,7 @@
 </head>
 <body>
     <section class="header">
+        <img src="Images/XhawLogo.jpg" alt="Xhaw Logo" class="logo">
         <h1>Empowering the Nation</h1>
         
         <nav> 
@@ -33,33 +34,89 @@
 
     <h2>Your Cart</h2>
 
+    <section class="discounts">
+        <h3>Available Discounts</h3>
+        <p>
+            1 course: No discount<br>
+            2 courses: 5% discount<br>
+            3 courses: 10% discount<br>
+            More than 3 courses: 15% discount
+        </p>
+    </section>
+
     <section class="cart-form">
         <h3>Course Selection</h3>
         <form>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required><br>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required><br>
 
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" required><br>
 
-            <input type="checkbox" id="course1" name="course1" value="Six Month Course">
-            <label for="course1"> Six Month Course - $500</label><br>
-            <input type="checkbox" id="course2" name="course2" value="Six Week Course">
-            <label for="course2"> Six Week Course - $200</label><br>
-            <input type="checkbox" id="course3" name="course3" value="One Month Course">
-            <label for="course3"> One Month Course - $100</label><br>
+            <h4>Select Courses:</h4>
+
+            <input type="checkbox" id="course1" name="course1" value="First Aid"><br>
+            <label for="course1"> First Aid - R1500</label><br>
+            <input type="checkbox" id="course2" name="course2" value="Sewing">
+            <label for="course2"> Sewing - R1500</label><br>
+            <input type="checkbox" id="course3" name="course3" value="Landscaping">
+            <label for="course3"> Landscaping - R1500</label><br>
+            <input type="checkbox" id="course4" name="course4" value="Life Skills">
+            <label for="course4"> Life Skills - R1500</label><br>
+            <input type="checkbox" id="course5" name="course5" value="Child Minding">
+            <label for="course5"> Child Minding - R750</label><br>
+            <input type="checkbox" id="course6" name="course6" value="Cooking">
+            <label for="course6"> Cooking - R750</label><br>
+            <input type="checkbox" id="course7" name="course7" value="Garden Maintenance">
+            <label for="course7"> Garden Maintenance - R750</label><br>
         </form>
 
-        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        <button type="button" onclick="calculateTotal() ">Calculate Total</button>
+
+<script>
+function calculateTotal() {
+    // Course prices
+    const prices = [1500, 1500, 1500, 1500, 750, 750, 750];
+    let total = 0;
+    let count = 0;
+
+    // Check which courses are selected
+    for (let i = 1; i <= 7; i++) {
+        if (document.getElementById('course' + i).checked) {
+            total += prices[i - 1];
+            count++;
+        }
+    }
+
+    // Apply discount
+    let discount = 0;
+    if (count === 2) discount = 0.05;
+    else if (count === 3) discount = 0.10;
+    else if (count > 3) discount = 0.15;
+
+    let discountedTotal = total * (1 - discount);
+
+    // Add VAT (15%)
+    let vat = discountedTotal * 0.15;
+    let finalTotal = discountedTotal + vat;
+
+    // Update the page
+    document.getElementById('totalAmount').textContent = 
+        "Total Amount: R" + finalTotal.toFixed(2);
+}
+</script>
+
+
+        <p id="VAT"> VAT: 15%</p>
         <p id="totalAmount">Total Amount: $0</p>
         <button type="submit">Submit</button>
     </section>
 
     <footer>
-        <p>&copy; 2025 Mesa Da Pereira. All rights reserved.</p>
+        <p>&copy; 2025 Empowering the Nation. All rights reserved.</p>
         <p>Follow us on:
             <a href="https://www.facebook.com/MesaDaPereira">Facebook</a>,
             <a href="https://www.instagram.com/MesaDaPereira">Instagram</a>,
