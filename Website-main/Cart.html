@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering the Nation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="header">
+        <h1>Empowering the Nation</h1>
+        
+        <nav> 
+            <a href="Home.html">Home</a>
+            <a href="Courses.html">Courses</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Cart.html">Cart</a>
+        </nav>
+    </section>
+
+    <h2>Your Cart</h2>
+
+    <section class="cart-form">
+        <h3>Course Selection</h3>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <input type="checkbox" id="course1" name="course1" value="Six Month Course">
+            <label for="course1"> Six Month Course - $500</label><br>
+            <input type="checkbox" id="course2" name="course2" value="Six Week Course">
+            <label for="course2"> Six Week Course - $200</label><br>
+            <input type="checkbox" id="course3" name="course3" value="One Month Course">
+            <label for="course3"> One Month Course - $100</label><br>
+        </form>
+
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        <p id="totalAmount">Total Amount: $0</p>
+        <button type="submit">Submit</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mesa Da Pereira. All rights reserved.</p>
+        <p>Follow us on:
+            <a href="https://www.facebook.com/MesaDaPereira">Facebook</a>,
+            <a href="https://www.instagram.com/MesaDaPereira">Instagram</a>,
+            <a href="https://www.twitter.com/MesaDaPereira">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
