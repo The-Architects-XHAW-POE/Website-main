@@ -28,16 +28,24 @@ a:hover {
     padding: 20px;
     text-align: center;
     position: relative;
+
+    /* keep header stacked: .header-container (logo+title) above nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
-.header nav {
+.header-container {
+    /* place logo and title side-by-side */
     display: flex;
-    flex-direction: row; /* Line elements in a row */
-    align-items: center; /* Center align the items */
-    margin-top: 10px; /* Add some spacing */
-    color: #fff; /* White text */
-    justify-content: center; /* Center the nav items */
-
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 10px;
 }
 
 nav a {
@@ -48,7 +56,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-.nav-links ul {
+.nav-links {
     display: flex;
     justify-content: center; /* Center the links */
     margin-top: 10px; /* Add spacing from the title */
@@ -62,10 +70,16 @@ nav a {
     flex-direction: column;
 }
 .logo {
-    height: 8%; /* Adjust the height as needed */
-    width: 9%;
-    border-radius: 10px; /* Optional: rounded corners for the logo */
-    float: left;
+    /* fixed pixel size for predictable layout next to the title */
+    height: 64px;
+    width: 64px;
+    border-radius: 7px;
+    object-fit: contain;
+}
+
+/* keep the actual nav block below the header-container */
+.header nav {
+    margin-top: 0; /* nav is already below because .header is column */
 }
 
 
@@ -165,7 +179,7 @@ footer {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #d1b982;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -197,4 +211,17 @@ footer {
     margin: 20px auto;
 }
 
+.hero-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #b59d6a; /* Dull gold background */
+    color: #000000; /* White text */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
+.course-item a, .course-item2 a {
+    color: #413f3f;
+}
